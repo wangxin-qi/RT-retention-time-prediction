@@ -1,42 +1,37 @@
-# RT-retention-time-prediction
+# RouteRT: retention-time prediction across LC methods
 
 Source code for retention time prediction of liquid chromatography.
 
-This repository is being prepared as the public code companion to the RouteRT manuscript. RouteRT combines molecular structure and LC conditions for a global retention-time (RT) prediction and can use eligible method-history, cross-condition RT, or related-method evidence for correction or transfer. A small set of measured RTs from a target method can support post hoc calibration.
+RouteRT combines molecular structure and LC-condition information to provide a global retention-time (RT) prediction. Depending on eligible evidence, the runtime can apply method-history correction, cross-condition RT transfer, method-family information, or post hoc calibration from a small target-method RT set. The submitted manuscript describes the evaluation and evidence-isolation protocol.
 
-## Repository status
+## What is in this repository
 
-The public repository is **under construction**. The training script, prediction script, a small example dataset, and any distributable model checkpoint will be added after source-code and data-sharing review. The files currently present do **not** constitute a complete reproducibility release. The manuscript's review-only materials are supplied separately through the journal submission system.
+- `predict.py`: command-line launcher for the checked RouteRT prediction runtime.
+- `train.py`: entry point for the global-backbone training module in `runtime/core/train/`.
+- `runtime/core/`: model, training, prediction, routing, calibration, and LC-condition modules taken from the checked submission code bundle.
+- `data/sample.csv`: three illustrative SMILES inputs. They are not rice-sample measurements and have no measured RT labels.
+- `requirements.txt`: dependency names recorded in the submission code bundle.
 
-## Planned layout
-
-```text
-.
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── train.py                 # pending
-├── predict.py               # pending
-├── data/
-│   └── sample.csv           # pending; small example only
-└── model/
-    └── checkpoint.pth       # optional; pending rights and size review
-```
+The source modules and the public example are provided for code inspection. They are **not yet a standalone end-to-end reproduction package**: the processed training corpus, LC-method metadata, pretrained route weights, and full validation materials are not hosted here. Those materials are supplied separately in the manuscript's Supporting Information for Review Only archive. Running `train.py` requires the processed corpus and configured training paths; running a prediction requires the associated model assets and method metadata.
 
 ## Environment
 
-A Python environment is required. Install the currently recorded project dependencies with:
+Install the recorded dependencies in a suitable Python environment:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-The dependency list is taken from the checked RouteRT code package, but its source file did not specify package versions. Tested versions and executable training/inference instructions will be documented when the public scripts are added.
+The checked source requirements file did not pin versions. Exact tested versions and an executable public release protocol remain to be documented; do not assume that installing the latest packages reproduces the manuscript results.
 
-## Data and model availability
+## Example input
 
-Large raw chromatographic files and third-party datasets are not included in this repository. Only a minimal shareable example will be added here. Any pretrained checkpoint will be released only after confirming redistribution rights and an appropriate hosting method.
+`data/sample.csv` contains the columns `compound_id` and `smiles`. It is a format example only. Prediction additionally requires a matching LC-method description and the trained model assets. No predicted values are supplied for this illustrative file.
 
-## Citation and contact
+## Data, weights, and reuse
 
-A citation and release identifier will be added when the manuscript and public repository are finalized. For questions, contact the corresponding authors identified in the manuscript.
+Large raw LC–MS files, third-party datasets, and pretrained checkpoint collections are excluded from this public repository. The authors will review redistribution rights, public hosting, and a versioned release before publication. No software license has yet been selected; repository visibility alone does not grant reuse rights.
+
+## Citation
+
+A formal citation and versioned release identifier will be added when available. Until then, cite the RouteRT manuscript if it is appropriate and available.
