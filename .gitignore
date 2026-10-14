@@ -1,0 +1,50 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Notebooks and temporary outputs
+.ipynb_checkpoints/
+*.log
+tmp/
+temp/
+outputs/
+runs/
+
+# Large or private data; add only reviewed small examples explicitly
+data/raw/
+data/processed_data/
+*.wiff
+*.wiff.scan
+*.mzML
+*.mzXML
+*.rar
+*.zip
+
+# Model checkpoints require deliberate release and may need Git LFS
+*.pth
+*.pt
+*.ckpt
