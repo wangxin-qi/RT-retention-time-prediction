@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+joblib
+PyYAML
+openpyxl
+matplotlib
+requests
+rdkit
+torch
+torchdata
+dgl
